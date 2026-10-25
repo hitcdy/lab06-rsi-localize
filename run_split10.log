@@ -1,0 +1,69 @@
+[sft] 种子数据 15 条（定位答案由 GT 框换算）→ sft_data.json
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights:  19%|█▉        | 91/471 [00:00<00:00, 859.56it/s]Loading weights:  38%|███▊      | 177/471 [00:00<00:00, 792.19it/s]Loading weights:  55%|█████▍    | 257/471 [00:00<00:00, 733.95it/s]Loading weights:  70%|███████   | 331/471 [00:00<00:00, 646.87it/s]Loading weights:  84%|████████▍ | 397/471 [00:00<00:00, 577.01it/s]Loading weights:  97%|█████████▋| 456/471 [00:00<00:00, 544.47it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 622.89it/s]
+trainable params: 1,363,968 || all params: 257,848,896 || trainable%: 0.5290
+[params] 总参数 257,848,896 / 可训练 1,363,968 = 0.529%
+[vision] 视觉特征缓存已启用（['Idefics3ForConditionalGeneration', 'Idefics3Model']）
+[json] 已更新 results_lab06.json（params, sft_data_seed）
+
+===== 基线 × 15 题 =====
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (28.3s，累计 1 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (32.4s，累计 2 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (32.1s，累计 3 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (32.3s，累计 4 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (35.5s，累计 5 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (35.1s，累计 6 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (34.8s，累计 7 张)
+[vision] 视觉前向未命中，缓存 (1, 17, 3, 512, 512) (36.4s，累计 8 张)
+基线            loc    正确 0/8
+基线            count  正确 4/4
+基线            exist  正确 0/3
+基线            总计 4/15，定位平均 IoU = 0.000（336.7s）
+
+
+[verifier] 自检：gold 格是否被判通过
+[verifier] gold 格通过 8/8
+[json] 已更新 results_lab06.json（stage_baseline, verifier_gold_pass）
+[sft] step1/10 loss=9.6275 (11.4s)
+[sft] step2/10 loss=2.2203 (23.0s)
+[sft] step3/10 loss=1.6719 (34.2s)
+[sft] step4/10 loss=10.1255 (47.1s)
+[sft] step5/10 loss=2.1473 (60.3s)
+[sft] step6/10 loss=1.7092 (71.6s)
+[sft] step7/10 loss=8.8671 (83.2s)
+[sft] step8/10 loss=2.0748 (95.2s)
+[sft] step9/10 loss=9.8766 (107.6s)
+[sft] step10/10 loss=2.1050 (119.6s)
+[sft] 适配器已保存到 ./sft_adapter（15 条数据池，124.1s）
+[json] 已更新 results_lab06.json（sft_curve, sft_timing, sft_config）
+
+===== SFT × 15 题 =====
+SFT           loc    正确 0/8
+SFT           count  正确 4/4
+SFT           exist  正确 0/3
+SFT           总计 4/15，定位平均 IoU = 0.000（65.0s）
+
+[json] 已更新 results_lab06.json（stage_sft）
+
+===== SFT + 验证器纠错 × 15 题 =====
+[L01·loc] × A1: '1. 在第几行第几列？\nAnswer: 1.' → A2: '1' (gold 第1行第2列)
+[L02·loc] × A1: '1. 在第几行第几列？\nAnswer: 1.' → A2: '1. 1. 1. 1. 1. 1. 1. 1.' (gold 第1行第1列)
+[L03·loc] × A1: '蓝色圆形位于第几行第几列' → A2: '0' (gold 第4行第2列)
+[L04·loc] × A1: '蓝色方形位于第几行第几列�' → A2: '0' (gold 第2行第2列)
+[L05·loc] × A1: '1. 在第几行第几列？\n第几行' → A2: '1.000000000000000000000' (gold 第1行第2列)
+[L06·loc] × A1: '1.' → A2: '0 1 2 3 4' (gold 第4行第1列)
+[L07·loc] × A1: '1. 在第几行第几列？\n第1行�' → A2: '0' (gold 第2行第4列)
+[L08·loc] × A1: '解码：1234567890123456789' → A2: '2' (gold 第4行第4列)
+[C01·count] √ A1: '1.' → A2: '1.' (gold 1个)
+[C02·count] √ A1: '1. 1.' → A2: '1. 1.' (gold 1个)
+[C03·count] √ A1: '1.' → A2: '1.' (gold 1个)
+[C04·count] √ A1: '1.' → A2: '1.' (gold 1个)
+[E01·exist] × A1: 'No.' → A2: '1. 1. 1. 1. 1. 1. 1. 1.' (gold 有)
+[E02·exist] × A1: 'No.' → A2: '512 个 1 个 1 个 1 个 1 个 1' (gold 有)
+[E03·exist] × A1: 'No.' → A2: '592' (gold 有)
+SFT：纯 VLM 4/15 → 纠错后 4/15（触发 11 次，由错变对 0 次；117.3s）
+
+[json] 已更新 results_lab06.json（stage_sft_corrected）
+
+===== RSI 第 1 轮 =====
+[rsi] 轮1：直接答对 4/15，自查改写 0 次，验证器纠错 10 次，纠错后新增可用样本 4 条，定位 IoU 0.0（117.4s）

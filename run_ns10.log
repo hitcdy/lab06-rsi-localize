@@ -1,0 +1,114 @@
+[sft] 种子数据 15 条（定位答案由 GT 框换算）→ sft_data.json
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[data] do_image_splitting = False
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights:  25%|██▌       | 118/471 [00:00<00:00, 1108.35it/s]Loading weights:  49%|████▊     | 229/471 [00:00<00:00, 1008.91it/s]Loading weights:  70%|███████   | 331/471 [00:00<00:00, 921.01it/s] Loading weights:  90%|█████████ | 424/471 [00:00<00:00, 844.68it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 895.13it/s]
+trainable params: 1,363,968 || all params: 257,848,896 || trainable%: 0.5290
+[params] 总参数 257,848,896 / 可训练 1,363,968 = 0.529%
+[vision] 视觉特征缓存已启用（['Idefics3ForConditionalGeneration', 'Idefics3Model']）
+[json] 已更新 results_lab06.json（params_ns10, sft_data_seed_ns10）
+
+===== 基线 × 15 题 =====
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.6s，累计 1 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 2 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.7s，累计 3 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 4 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 5 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 6 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 7 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.7s，累计 8 张)
+基线            loc    正确 0/8
+基线            count  正确 1/4
+基线            exist  正确 1/3
+基线            总计 2/15，定位平均 IoU = 0.000（31.4s）
+
+
+[verifier] 自检：gold 格是否被判通过
+[verifier] gold 格通过 8/8
+[json] 已更新 results_lab06.json（stage_baseline_ns10, verifier_gold_pass_ns10）
+[sft] step1/10 loss=8.5866 (1.1s)
+[sft] step2/10 loss=1.9690 (2.5s)
+[sft] step3/10 loss=1.4927 (3.8s)
+[sft] step4/10 loss=9.0162 (5.1s)
+[sft] step5/10 loss=2.0137 (6.5s)
+[sft] step6/10 loss=1.3500 (7.9s)
+[sft] step7/10 loss=7.9088 (9.0s)
+[sft] step8/10 loss=1.3522 (10.4s)
+[sft] step9/10 loss=8.7428 (11.5s)
+[sft] step10/10 loss=1.5006 (13.1s)
+[sft] 适配器已保存到 ./sft_adapter_ns10（15 条数据池，14.6s）
+[json] 已更新 results_lab06.json（sft_curve_ns10, sft_timing_ns10, sft_config_ns10）
+
+===== SFT × 15 题 =====
+SFT           loc    正确 0/8
+SFT           count  正确 4/4
+SFT           exist  正确 1/3
+SFT           总计 5/15，定位平均 IoU = 0.000（17.6s）
+
+[json] 已更新 results_lab06.json（stage_sft_ns10）
+
+===== SFT + 验证器纠错 × 15 题 =====
+[L01·loc] × A1: '1. 在第几行第几列？\n2. 1.' → A2: '0.01.' (gold 第1行第2列)
+[L02·loc] × A1: '1. 在第几行第几列？\n2. 1.' → A2: '1. 小明的第一行，第二行，第三' (gold 第1行第1列)
+[L03·loc] × A1: '1.1.' → A2: '0.01.' (gold 第4行第2列)
+[L04·loc] × A1: '1. 在第几行第几列？\nAnswer: 1.' → A2: '0.01.' (gold 第2行第2列)
+[L05·loc] × A1: '1. 在第几行第几列？\n2. 1.' → A2: '0.01.' (gold 第1行第2列)
+[L06·loc] × A1: '1.0.' → A2: '0.5' (gold 第4行第1列)
+[L07·loc] × A1: '1. 在第几行第几列？\n2. 1.' → A2: '0.01.' (gold 第2行第4列)
+[L08·loc] × A1: '1. 1. 2. 3. 4. 5. 6. 7.' → A2: '1.0000000000000001' (gold 第4行第4列)
+[C01·count] √ A1: '1.0.' → A2: '1.0.' (gold 1个)
+[C02·count] √ A1: '1. 1. 1. 1. 1. 1. 1. 1.' → A2: '1. 1. 1. 1. 1. 1. 1. 1.' (gold 1个)
+[C03·count] √ A1: '1.' → A2: '1.' (gold 1个)
+[C04·count] √ A1: '1.' → A2: '1.' (gold 1个)
+[E01·exist] × A1: 'No.' → A2: '608 个 1 个 1 个 1 个 1 个 1' (gold 有)
+[E02·exist] × A1: 'No.' → A2: '512 个 1 个 1 个 1 个 1 个 1' (gold 有)
+[E03·exist] √ A1: 'Yes.' → A2: 'Yes.' (gold 有)
+SFT：纯 VLM 5/15 → 纠错后 5/15（触发 10 次，由错变对 0 次；34.2s）
+
+[json] 已更新 results_lab06.json（stage_sft_corrected_ns10）
+
+===== RSI 第 1 轮 =====
+[rsi] 轮1：直接答对 5/15，自查改写 0 次，验证器纠错 9 次，纠错后新增可用样本 5 条，定位 IoU 0.0（31.4s）
+[sft] step1/10 loss=1.7071 (1.5s)
+[sft] step2/10 loss=8.2569 (2.7s)
+[sft] step3/10 loss=6.3454 (4.1s)
+[sft] step4/10 loss=1.3777 (5.8s)
+[sft] step5/10 loss=4.7569 (7.2s)
+[sft] step6/10 loss=7.5998 (8.5s)
+[sft] step7/10 loss=0.8840 (9.9s)
+[sft] step8/10 loss=1.0256 (11.7s)
+[sft] step9/10 loss=2.7612 (13.0s)
+[sft] step10/10 loss=6.7736 (14.3s)
+[sft] 适配器已保存到 ./rsi_adapter_r1（20 条数据池，18.1s）
+
+===== RSI 轮1 × 15 题 =====
+RSI 轮1        loc    正确 0/8
+RSI 轮1        count  正确 4/4
+RSI 轮1        exist  正确 0/3
+RSI 轮1        总计 4/15，定位平均 IoU = 0.000（18.9s）
+
+[json] 已更新 results_lab06.json（rounds_ns10, stage_rsi1_ns10）
+
+===== RSI 第 2 轮 =====
+[rsi] 轮2：直接答对 4/15，自查改写 0 次，验证器纠错 10 次，纠错后新增可用样本 4 条，定位 IoU 0.0（32.2s）
+[sft] step1/10 loss=1.5507 (1.5s)
+[sft] step2/10 loss=1.3541 (3.2s)
+[sft] step3/10 loss=7.4701 (4.5s)
+[sft] step4/10 loss=3.1829 (5.7s)
+[sft] step5/10 loss=5.9670 (6.9s)
+[sft] step6/10 loss=2.3891 (8.1s)
+[sft] step7/10 loss=3.2507 (9.5s)
+[sft] step8/10 loss=5.6119 (10.7s)
+[sft] step9/10 loss=2.8136 (12.0s)
+[sft] step10/10 loss=4.5234 (13.2s)
+[sft] 适配器已保存到 ./rsi_adapter_r2（24 条数据池，14.8s）
+
+===== RSI 轮2 × 15 题 =====
+RSI 轮2        loc    正确 1/8
+RSI 轮2        count  正确 4/4
+RSI 轮2        exist  正确 0/3
+RSI 轮2        总计 5/15，定位平均 IoU = 0.020（20.6s）
+
+[json] 已更新 results_lab06.json（rounds_ns10, stage_rsi2_ns10）
+[json] 已更新 results_lab06.json（timings_ns10）
+
+[all] 全链路完成，总耗时 4.2 分钟，数据池 24 条

@@ -1,0 +1,272 @@
+[sft] 种子数据 15 条（定位答案由 GT 框换算）→ sft_data.json
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+[data] do_image_splitting = False
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights:  27%|██▋       | 125/471 [00:00<00:00, 1244.79it/s]Loading weights:  53%|█████▎    | 250/471 [00:00<00:00, 996.03it/s] Loading weights:  75%|███████▍  | 353/471 [00:00<00:00, 921.33it/s]Loading weights:  95%|█████████▍| 447/471 [00:00<00:00, 871.77it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 928.49it/s]
+trainable params: 1,363,968 || all params: 257,848,896 || trainable%: 0.5290
+[params] 总参数 257,848,896 / 可训练 1,363,968 = 0.529%
+[vision] 视觉特征缓存已启用（['Idefics3ForConditionalGeneration', 'Idefics3Model']）
+[json] 已更新 results_lab06.json（params, sft_data_seed）
+
+===== 基线 × 15 题 =====
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 1 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.6s，累计 2 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 3 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 4 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.7s，累计 5 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 6 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 7 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (2.0s，累计 8 张)
+基线            loc    正确 0/8
+基线            count  正确 1/4
+基线            exist  正确 1/3
+基线            总计 2/15，定位平均 IoU = 0.000（31.5s）
+
+
+[verifier] 自检：gold 格是否被判通过
+[verifier] gold 格通过 8/8
+[json] 已更新 results_lab06.json（stage_baseline, verifier_gold_pass）
+[sft] step1/60 loss=8.5866 (1.2s)
+[sft] step2/60 loss=1.9690 (2.9s)
+[sft] step3/60 loss=1.4927 (4.5s)
+[sft] step4/60 loss=9.0162 (5.7s)
+[sft] step5/60 loss=2.0137 (7.2s)
+[sft] step6/60 loss=1.3500 (8.7s)
+[sft] step7/60 loss=7.9088 (9.8s)
+[sft] step8/60 loss=1.3522 (11.2s)
+[sft] step9/60 loss=8.7428 (12.4s)
+[sft] step10/60 loss=1.5006 (14.0s)
+[sft] step11/60 loss=7.8347 (15.2s)
+[sft] step12/60 loss=1.3402 (16.6s)
+[sft] step13/60 loss=9.0349 (17.9s)
+[sft] step14/60 loss=1.3875 (19.4s)
+[sft] step15/60 loss=7.4166 (20.6s)
+[sft] step16/60 loss=8.4466 (21.7s)
+[sft] step17/60 loss=6.8122 (22.9s)
+[sft] step18/60 loss=1.0437 (24.4s)
+[sft] step19/60 loss=6.4257 (25.7s)
+[sft] step20/60 loss=0.9723 (27.4s)
+[sft] step21/60 loss=1.1848 (29.2s)
+[sft] step22/60 loss=6.4600 (30.4s)
+[sft] step23/60 loss=1.3522 (31.8s)
+[sft] step24/60 loss=1.0795 (33.3s)
+[sft] step25/60 loss=5.3339 (34.5s)
+[sft] step26/60 loss=0.8560 (36.0s)
+[sft] step27/60 loss=1.2786 (37.4s)
+[sft] step28/60 loss=5.0585 (38.6s)
+[sft] step29/60 loss=0.5696 (40.1s)
+[sft] step30/60 loss=4.1586 (41.3s)
+[sft] step31/60 loss=4.1397 (42.4s)
+[sft] step32/60 loss=3.5153 (43.5s)
+[sft] step33/60 loss=3.0306 (44.8s)
+[sft] step34/60 loss=0.3908 (46.2s)
+[sft] step35/60 loss=2.8445 (47.3s)
+[sft] step36/60 loss=0.7859 (48.7s)
+[sft] step37/60 loss=0.4812 (50.3s)
+[sft] step38/60 loss=0.4277 (51.7s)
+[sft] step39/60 loss=0.3432 (53.0s)
+[sft] step40/60 loss=3.1236 (54.1s)
+[sft] step41/60 loss=0.7606 (55.6s)
+[sft] step42/60 loss=0.9098 (57.0s)
+[sft] step43/60 loss=0.6189 (58.4s)
+[sft] step44/60 loss=1.9473 (59.6s)
+[sft] step45/60 loss=1.7082 (60.8s)
+[sft] step46/60 loss=0.5963 (62.3s)
+[sft] step47/60 loss=0.2835 (63.9s)
+[sft] step48/60 loss=0.4065 (65.3s)
+[sft] step49/60 loss=0.9451 (66.6s)
+[sft] step50/60 loss=0.6838 (68.0s)
+[sft] step51/60 loss=0.2473 (69.4s)
+[sft] step52/60 loss=1.0530 (70.6s)
+[sft] step53/60 loss=0.8469 (71.8s)
+[sft] step54/60 loss=0.6483 (72.8s)
+[sft] step55/60 loss=0.9818 (73.9s)
+[sft] step56/60 loss=0.3728 (75.2s)
+[sft] step57/60 loss=0.8443 (76.7s)
+[sft] step58/60 loss=0.6490 (78.2s)
+[sft] step59/60 loss=0.2659 (79.3s)
+[sft] step60/60 loss=0.2760 (80.9s)
+[sft] 适配器已保存到 ./sft_adapter（15 条数据池 × 4 轮 = 60 步，82.9s）
+[json] 已更新 results_lab06.json（sft_curve, sft_timing, sft_config）
+
+===== SFT × 15 题 =====
+SFT           loc    正确 2/8
+SFT           count  正确 4/4
+SFT           exist  正确 0/3
+SFT           总计 6/15，定位平均 IoU = 0.059（23.0s）
+
+[json] 已更新 results_lab06.json（stage_sft）
+
+===== SFT + 验证器纠错 × 15 题 =====
+[L01·loc] √ A1: '第1行第2列第3列第4列第5列第6列' → A2: '第1行第2列第3列第4列第5列第6列' (gold 第1行第2列)
+[L02·loc] × A1: '第1行第2列第3列第4列第5列第6列' → A2: '第1行第4列为0%，第1行第4列为100' (gold 第1行第1列)
+[L03·loc] × A1: '第1行第4列为第1行第4列，第1行第' → A2: '第1行第4列为0%，第4行第1列为0%，' (gold 第4行第2列)
+[L04·loc] × A1: '第1行第2列第3列第4列第5列第6列' → A2: '第1行第4列是第3行第2列的第2列是�' (gold 第2行第2列)
+[L05·loc] √ A1: '第1行第2列第3列第4列第5列第6列' → A2: '第1行第2列第3列第4列第5列第6列' (gold 第1行第2列)
+[L06·loc] × A1: '第1行第2列第3列第4列第5列第6列' → A2: '第4行第5列第6列。\n请用「第X行�' (gold 第4行第1列)
+[L07·loc] × A1: '第1行第2列第3列第4列第5列第6列' → A2: '第1行第4列\n第1行第4列\n第1行第' (gold 第2行第4列)
+[L08·loc] √ A1: '第1行第4列为1，第4列第1行为1，第' → A2: '第4行第4列为0%，第4行第4列为100' (gold 第4行第4列)
+[C01·count] √ A1: '1个红色方形？' → A2: '1个红色方形？' (gold 1个)
+[C02·count] √ A1: '1个红色方形？' → A2: '1个红色方形？' (gold 1个)
+[C03·count] √ A1: '1个蓝色圆形？' → A2: '1个蓝色圆形？' (gold 1个)
+[C04·count] √ A1: '1个蓝色方形？' → A2: '1个蓝色方形？' (gold 1个)
+[E01·exist] √ A1: '有没有红色方形？' → A2: '有508个颜色，连通块 1处。' (gold 有)
+[E02·exist] √ A1: '有没有红色方形？' → A2: '有512个颜色，连通块1个处。' (gold 有)
+[E03·exist] √ A1: '有没有蓝色圆形？' → A2: '有592个颜色，连通块 1个处。' (gold 有)
+SFT：纯 VLM 6/15 → 纠错后 10/15（触发 9 次，由错变对 4 次；40.8s）
+
+[json] 已更新 results_lab06.json（stage_sft_corrected）
+
+===== RSI 第 1 轮 =====
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 9 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 10 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (2.0s，累计 11 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 12 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.7s，累计 13 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.8s，累计 14 张)
+[rsi] 轮1：直接答对 6/15，自查改写 2 次，验证器纠错 9 次，纠错后新增可用样本 4 条，定位 IoU 0.0594（61.0s）
+[sft] step1/60 loss=0.7591 (1.6s)
+[sft] step2/60 loss=3.1514 (2.9s)
+[sft] step3/60 loss=0.0872 (4.3s)
+[sft] step4/60 loss=3.0094 (5.5s)
+[sft] step5/60 loss=0.5286 (7.0s)
+[sft] step6/60 loss=0.5957 (8.4s)
+[sft] step7/60 loss=0.1874 (9.8s)
+[sft] step8/60 loss=0.1896 (11.2s)
+[sft] step9/60 loss=0.0774 (12.4s)
+[sft] step10/60 loss=0.0605 (13.5s)
+[sft] step11/60 loss=0.0371 (14.6s)
+[sft] step12/60 loss=0.0681 (15.6s)
+[sft] step13/60 loss=0.2147 (17.0s)
+[sft] step14/60 loss=0.0373 (18.2s)
+[sft] step15/60 loss=0.8702 (19.6s)
+[sft] step16/60 loss=2.9863 (20.9s)
+[sft] step17/60 loss=0.0310 (22.0s)
+[sft] step18/60 loss=0.5027 (23.4s)
+[sft] step19/60 loss=0.3269 (24.8s)
+[sft] step20/60 loss=0.8306 (26.2s)
+[sft] step21/60 loss=0.5090 (27.5s)
+[sft] step22/60 loss=0.0200 (28.8s)
+[sft] step23/60 loss=0.0215 (29.9s)
+[sft] step24/60 loss=0.1627 (31.2s)
+[sft] step25/60 loss=2.8935 (32.4s)
+[sft] step26/60 loss=0.1339 (33.9s)
+[sft] step27/60 loss=0.4768 (35.3s)
+[sft] step28/60 loss=0.0084 (36.4s)
+[sft] step29/60 loss=0.6501 (38.1s)
+[sft] step30/60 loss=2.8981 (39.5s)
+[sft] step31/60 loss=0.2341 (40.9s)
+[sft] step32/60 loss=0.2189 (42.3s)
+[sft] step33/60 loss=0.0085 (43.4s)
+[sft] step34/60 loss=0.0047 (44.7s)
+[sft] step35/60 loss=0.5019 (46.1s)
+[sft] step36/60 loss=0.0163 (47.3s)
+[sft] step37/60 loss=0.0397 (48.5s)
+[sft] step38/60 loss=2.7012 (49.9s)
+[sft] step39/60 loss=0.0234 (51.0s)
+[sft] step40/60 loss=2.7301 (52.3s)
+[sft] step41/60 loss=0.0226 (53.4s)
+[sft] step42/60 loss=0.0054 (54.5s)
+[sft] step43/60 loss=0.2095 (56.0s)
+[sft] step44/60 loss=0.5127 (57.5s)
+[sft] step45/60 loss=2.6094 (58.9s)
+[sft] step46/60 loss=0.1612 (60.5s)
+[sft] step47/60 loss=0.0153 (61.7s)
+[sft] step48/60 loss=0.6895 (63.2s)
+[sft] step49/60 loss=0.0044 (64.3s)
+[sft] step50/60 loss=2.5456 (65.6s)
+[sft] step51/60 loss=0.1423 (67.1s)
+[sft] step52/60 loss=0.0122 (68.3s)
+[sft] step53/60 loss=0.0051 (69.6s)
+[sft] step54/60 loss=0.4663 (71.3s)
+[sft] step55/60 loss=0.6345 (73.0s)
+[sft] step56/60 loss=0.2449 (74.5s)
+[sft] step57/60 loss=0.3914 (76.1s)
+[sft] step58/60 loss=0.2139 (77.6s)
+[sft] step59/60 loss=0.0378 (78.7s)
+[sft] step60/60 loss=2.4438 (80.1s)
+[sft] 适配器已保存到 ./rsi_adapter_r1（19 条数据池 × 4 轮 = 60 步，83.4s）
+
+===== RSI 轮1 × 15 题 =====
+RSI 轮1        loc    正确 3/8
+RSI 轮1        count  正确 4/4
+RSI 轮1        exist  正确 2/3
+RSI 轮1        总计 9/15，定位平均 IoU = 0.077（22.4s）
+
+[json] 已更新 results_lab06.json（rounds, stage_rsi1）
+
+===== RSI 第 2 轮 =====
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 15 张)
+[vision] 视觉前向未命中，缓存 (1, 1, 3, 512, 512) (1.9s，累计 16 张)
+[rsi] 轮2：直接答对 9/15，自查改写 1 次，验证器纠错 6 次，纠错后新增可用样本 2 条，定位 IoU 0.0767（48.7s）
+[sft] step1/60 loss=2.4293 (1.2s)
+[sft] step2/60 loss=0.0099 (2.5s)
+[sft] step3/60 loss=0.6234 (4.2s)
+[sft] step4/60 loss=0.1101 (5.6s)
+[sft] step5/60 loss=0.6456 (7.0s)
+[sft] step6/60 loss=0.3693 (8.6s)
+[sft] step7/60 loss=0.6386 (10.1s)
+[sft] step8/60 loss=0.0049 (11.2s)
+[sft] step9/60 loss=2.3255 (12.6s)
+[sft] step10/60 loss=2.2964 (13.9s)
+[sft] step11/60 loss=0.3399 (15.3s)
+[sft] step12/60 loss=0.0039 (16.5s)
+[sft] step13/60 loss=0.0148 (17.6s)
+[sft] step14/60 loss=0.0210 (18.8s)
+[sft] step15/60 loss=0.4998 (20.3s)
+[sft] step16/60 loss=0.0038 (21.4s)
+[sft] step17/60 loss=0.3376 (22.8s)
+[sft] step18/60 loss=0.0114 (24.0s)
+[sft] step19/60 loss=0.1693 (25.4s)
+[sft] step20/60 loss=0.1591 (27.0s)
+[sft] step21/60 loss=2.2563 (28.3s)
+[sft] step22/60 loss=2.1457 (29.7s)
+[sft] step23/60 loss=2.1567 (31.0s)
+[sft] step24/60 loss=0.3212 (32.4s)
+[sft] step25/60 loss=0.0040 (33.6s)
+[sft] step26/60 loss=0.3001 (35.1s)
+[sft] step27/60 loss=2.0552 (36.4s)
+[sft] step28/60 loss=0.0630 (37.5s)
+[sft] step29/60 loss=0.2260 (39.0s)
+[sft] step30/60 loss=0.1870 (40.5s)
+[sft] step31/60 loss=0.0037 (41.6s)
+[sft] step32/60 loss=0.1285 (43.1s)
+[sft] step33/60 loss=0.1347 (44.6s)
+[sft] step34/60 loss=0.0424 (45.8s)
+[sft] step35/60 loss=0.5468 (47.4s)
+[sft] step36/60 loss=0.4980 (48.8s)
+[sft] step37/60 loss=0.0142 (50.1s)
+[sft] step38/60 loss=0.0036 (51.2s)
+[sft] step39/60 loss=2.0900 (52.5s)
+[sft] step40/60 loss=0.5921 (54.0s)
+[sft] step41/60 loss=0.0120 (55.2s)
+[sft] step42/60 loss=0.5617 (56.7s)
+[sft] step43/60 loss=0.0024 (57.8s)
+[sft] step44/60 loss=0.5635 (59.3s)
+[sft] step45/60 loss=0.5128 (60.9s)
+[sft] step46/60 loss=0.5076 (62.5s)
+[sft] step47/60 loss=0.0095 (63.7s)
+[sft] step48/60 loss=0.1118 (65.2s)
+[sft] step49/60 loss=0.1801 (66.9s)
+[sft] step50/60 loss=0.4947 (68.5s)
+[sft] step51/60 loss=0.0084 (69.7s)
+[sft] step52/60 loss=1.8853 (71.0s)
+[sft] step53/60 loss=0.0074 (72.3s)
+[sft] step54/60 loss=0.0048 (73.5s)
+[sft] step55/60 loss=0.2126 (75.1s)
+[sft] step56/60 loss=0.1479 (76.6s)
+[sft] step57/60 loss=1.9923 (77.9s)
+[sft] step58/60 loss=0.3636 (79.4s)
+[sft] step59/60 loss=0.3928 (80.9s)
+[sft] step60/60 loss=1.8147 (82.3s)
+[sft] 适配器已保存到 ./rsi_adapter_r2（21 条数据池 × 3 轮 = 60 步，86.3s）
+
+===== RSI 轮2 × 15 题 =====
+RSI 轮2        loc    正确 3/8
+RSI 轮2        count  正确 4/4
+RSI 轮2        exist  正确 3/3
+RSI 轮2        总计 10/15，定位平均 IoU = 0.077（24.4s）
+
+[json] 已更新 results_lab06.json（rounds, stage_rsi2）
+[json] 已更新 results_lab06.json（timings）
+
+[all] 全链路完成，总耗时 8.8 分钟，数据池 21 条

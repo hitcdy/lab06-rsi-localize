@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+.venv/
+hw6_imgs/ov/
+~$*.docx
